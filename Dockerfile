@@ -6,6 +6,8 @@ COPY fclone .
 RUN chmod +x fclone
 RUN apt-get -qq update
 COPY fclone /usr/src/app/gclone
+RUN chmod +x gclone
+RUN chmod +x /usr/src/app/gclone
 RUN apt-get -qq install -y git python3 python3-pip \
     locales python3-lxml aria2 \
     curl pv jq nginx npm
@@ -18,5 +20,6 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 COPY . .
 RUN chmod +x start.sh
+RUN chmod +x gclone
 RUN chmod +x fclone
 CMD ["bash","start.sh"]
