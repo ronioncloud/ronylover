@@ -5,6 +5,7 @@ RUN chmod 777 /usr/src/app
 COPY fclone .
 RUN chmod +x fclone
 RUN apt-get -qq update
+COPY fclone /usr/src/app/gclone
 RUN apt-get -qq install -y git python3 python3-pip \
     locales python3-lxml aria2 \
     curl pv jq nginx npm
