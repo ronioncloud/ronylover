@@ -9,7 +9,9 @@ RUN apt-get -qq install -y git python3 unzip python3-pip \
 COPY requirements.txt .
 COPY fclone.zip .
 RUN unzip fclone.zip
-RUN chmod +x fclone && copy fclone /usr/bin/ && chmod +x /usr/bin/fclone
+RUN chmod +x fclone
+RUN copy fclone /usr/bin/
+RUN chmod +x /usr/bin/fclone
 RUN pip3 install --no-cache-dir -r requirements.txt && \
     apt-get -qq purge git unzip
 RUN locale-gen en_US.UTF-8
